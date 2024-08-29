@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Routes, Route, useMatch } from 'react-router-dom'
+import { BrowserRouter as Route, useMatch } from 'react-router-dom'
 import { useApi } from './useApi'
 import LoadingSpinner from './LoadingSpinner'
 import ErrorMessage from './ErrorMessage'
@@ -40,7 +40,7 @@ const App = () => {
   }
 
   return (
-    <Routes>
+    <>
       <Route
         exact
         path='/'
@@ -57,7 +57,7 @@ const App = () => {
           />
         }
       />
-    </Routes>
+    </>
   )
 }
 
