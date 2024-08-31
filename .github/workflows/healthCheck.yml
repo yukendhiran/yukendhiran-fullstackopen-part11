@@ -1,0 +1,18 @@
+name: Periodic pipeline
+
+on:
+  #schedule:
+  #  - cron: '33 * * * *'
+  push:
+    branches: [main]
+
+jobs:
+  health_check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Ping the deployed service's URL
+        uses: jtalk/url-health-check-action@v4
+        with:
+          url: https://yukendhiran-fullstackopen-part11.onrender.com
+          max-attempts: 3
+          retry-delay: 5s
