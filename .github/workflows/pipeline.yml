@@ -32,7 +32,7 @@ jobs:
         if: ${{ steps.deploy.outcome == 'success' }}
         uses: rjstone/discord-webhook-notify@v1
         with:
-          description: Commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) built and [deployed](${{ vars.DEPLOYMENT }})!
+          description: Commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) built and [deployed](https://yukendhiran-fullstackopen-part11.onrender.com/)!
           footer: Triggered by ${{ github.triggering_actor }}
           severity: info
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
