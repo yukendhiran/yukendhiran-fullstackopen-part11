@@ -43,7 +43,7 @@ jobs:
           description: Pipeline failed for commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
           footer: Triggered by ${{ github.triggering_actor }}
           severity: error
-          webhookUrl: ${{ secrets.DISCORD }}
+          webhookUrl: ${{ secrets.DISCORD }}.toJson
 
   tag_release:
     needs: [simple_deployment_pipeline]
