@@ -36,13 +36,12 @@ jobs:
         with:
           args: 'The project has been deployed. Link: https://yukendhiran-fullstackopen-part11.onrender.com'
       - name: Discord webhook (failure)
-        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         if: ${{ failure() }}
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD }}
+        uses: Ilshidur/action-discord@master
         with:
-          description: Pipeline failed for commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
-          footer: Triggered by ${{ github.triggering_actor }}
-          severity: error
-          webhookUrl: ${{ secrets.DISCORD }}.toJson
+          args: 'Something Failed and Its not Depolyed'
 
   tag_release:
     needs: [simple_deployment_pipeline]
