@@ -30,14 +30,14 @@ jobs:
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
       - name: Discord webhook (deploy)
         if: ${{ steps.deploy.outcome == 'success' }}
-        uses: rjstone/discord-webhook-notify@v1
+        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         with:
           description: Commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) built and [deployed](https://yukendhiran-fullstackopen-part11.onrender.com/)!
           footer: Triggered by ${{ github.triggering_actor }}
           severity: info
           webhookUrl: ${{ secrets.DISCORD }}
       - name: Discord webhook (failure)
-        uses: rjstone/discord-webhook-notify@v1
+        uses: rjstone/discord-webhook-notify@89b0bf43c2c8514f70d0dcba4a706b904e8a3112
         if: ${{ failure() }}
         with:
           description: Pipeline failed for commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
