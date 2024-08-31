@@ -35,7 +35,7 @@ jobs:
           description: Commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}) built and [deployed](https://yukendhiran-fullstackopen-part11.onrender.com/)!
           footer: Triggered by ${{ github.triggering_actor }}
           severity: info
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          webhookUrl: ${{ secrets.DISCORD }}
       - name: Discord webhook (failure)
         uses: rjstone/discord-webhook-notify@v1
         if: ${{ failure() }}
@@ -43,7 +43,7 @@ jobs:
           description: Pipeline failed for commit [${{ github.sha }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}).
           footer: Triggered by ${{ github.triggering_actor }}
           severity: error
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          webhookUrl: ${{ secrets.DISCORD }}
 
   tag_release:
     needs: [simple_deployment_pipeline]
