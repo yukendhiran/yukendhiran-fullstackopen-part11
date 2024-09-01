@@ -1,8 +1,6 @@
-name: Periodic pipeline
+name: Health Check pipeline
 
 on:
-  #schedule:
-  #  - cron: '33 * * * *'
   push:
     branches: [main]
 
